@@ -1,0 +1,204 @@
+BGL--SA14
+dict of names 
+{'BGL--SA14': 0}
+ return from sh ip route | inc known via 
+  Known via "eigrp 100", distance 90, metric 284160, type internal
+ Name BGL--SA14 show ip route | i known via
+  Known via "eigrp 100", distance 90, metric 284160, type internal
+PROT- eigrp
+output from sh ip route | inc via 
+  Known via "eigrp 100", distance 90, metric 284160, type internal
+  Redistributing via eigrp 100
+  * 10.7.14.7, from 10.7.14.7, 00:58:47 ago, via FastEthernet2/0
+Splitting
+['Known', 'via', '"eigrp', '100",', 'distance', '90,', 'metric', '284160,', 'type', 'internal']
+['Redistributing', 'via', 'eigrp', '100']
+['*', '10.7.14.7,', 'from', '10.7.14.7,', '00:58:47', 'ago,', 'via', 'FastEthernet2/0']
+extract- 10.7.14.7
+hop  FastEthernet2/0
+ Return 
+FastEthernet2/0            10.7.14.14      YES NVRAM  up                    up      
+BGL--SC07
+dict of names 
+{'BGL--SC07': 1, 'BGL--SA14': 0}
+ return from sh ip route | inc known via 
+  Known via "connected", distance 0, metric 0 (connected, via interface)
+ Name BGL--SC07 show ip route | i known via
+  Known via "connected", distance 0, metric 0 (connected, via interface)
+PROT- connected",
+Connected route- show ip route| i directly 
+  * directly connected, via FastEthernet0/0
+ Name BGL--SC07 is connected to dst via FastEthernet0/0 directly
+ return from sh ip int brief | inc dest at dest 
+FastEthernet2/0            10.7.14.7       YES NVRAM  up                    up      
+ Name BGL--SC07 sh ip int brief | include 10.7.14.7
+FastEthernet2/0            10.7.14.7       YES NVRAM  up                    up      
+ return from sh ip int brief | inc dest 
+FastEthernet0/0            10.1.7.1        YES NVRAM  up                    up      
+Entry interfaces 
+{'BGL--SC07': {'FastEthernet2/0 10.7.14.7'}, 'BGL--RC01': {'FastEthernet0/0 directly'}}
+
+ Exit  interfaces 
+{'BGL--SC07': {'FastEthernet0/0 directly'}, 'BGL--SA14': {'FastEthernet2/0 10.7.14.7'}}
+
+ Entry Reverse 
+{'directly': {'BGL--RC01 FastEthernet0/0'}, '10.7.14.7': {'BGL--SC07 FastEthernet2/0'}}
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     1.0.0.0/32 is subnetted, 1 subnets
+D       1.1.1.1 [90/409600] via 10.1.7.1, 00:20:15, FastEthernet0/0
+     6.0.0.0/32 is subnetted, 1 subnets
+D EX    6.6.6.6 [170/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0
+     10.0.0.0/24 is subnetted, 10 subnets
+C       10.7.13.0 is directly connected, FastEthernet2/1
+D       10.2.8.0 [90/284160] via 10.7.8.8, 00:15:18, FastEthernet2/2
+C       10.7.14.0 is directly connected, FastEthernet2/0
+C       10.7.8.0 is directly connected, FastEthernet2/2
+D       10.1.2.0 [90/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0
+D       10.8.14.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0
+                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2
+C       10.1.7.0 is directly connected, FastEthernet0/0
+D       10.8.13.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1
+                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2
+D       10.14.20.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0
+D       10.13.19.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1
+['Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP', '       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ', '       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2', '       E1 - OSPF external type 1, E2 - OSPF external type 2', '       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2', '       ia - IS-IS inter area, * - candidate default, U - per-user static route', '       o - ODR, P - periodic downloaded static route', '', 'Gateway of last resort is not set', '', '     1.0.0.0/32 is subnetted, 1 subnets', 'D       1.1.1.1 [90/409600] via 10.1.7.1, 00:20:15, FastEthernet0/0', '     6.0.0.0/32 is subnetted, 1 subnets', 'D EX    6.6.6.6 [170/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0', '     10.0.0.0/24 is subnetted, 10 subnets', 'C       10.7.13.0 is directly connected, FastEthernet2/1', 'D       10.2.8.0 [90/284160] via 10.7.8.8, 00:15:18, FastEthernet2/2', 'C       10.7.14.0 is directly connected, FastEthernet2/0', 'C       10.7.8.0 is directly connected, FastEthernet2/2', 'D       10.1.2.0 [90/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0', 'D       10.8.14.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0', '                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2', 'C       10.1.7.0 is directly connected, FastEthernet0/0', 'D       10.8.13.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1', '                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2', 'D       10.14.20.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0', 'D       10.13.19.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1']
+D       1.1.1.1 [90/409600] via 10.1.7.1, 00:20:15, FastEthernet0/0
+D EX    6.6.6.6 [170/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0
+D       10.2.8.0 [90/284160] via 10.7.8.8, 00:15:18, FastEthernet2/2
+D       10.1.2.0 [90/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0
+D       10.8.14.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0
+                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2
+D       10.8.13.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1
+                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2
+D       10.14.20.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0
+D       10.13.19.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1
+FastEthernet2/0 in loop 
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'c205.2970.f200', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '', 'interf_reset': '4', 'address': 'c205.2970.f200', 'output_rate': '0', 'last_output': 'never', 'ignored': '0', 'collisions': '0', 'input_packets': '0', 'interface': 'FastEthernet2/0', 'output_packets': '0', 'ip_address': '10.7.14.7/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Fast Ethernet', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': '', 'reliability': '255/255'}]
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'c205.2970.f200', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '', 'interf_reset': '4', 'address': 'c205.2970.f200', 'output_rate': '0', 'last_output': 'never', 'ignored': '0', 'collisions': '0', 'input_packets': '0', 'interface': 'FastEthernet2/0', 'output_packets': '0', 'ip_address': '10.7.14.7/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Fast Ethernet', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': '', 'reliability': '255/255'}]
+FastEthernet0/0 in loop 
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '10000 Kbit', 'bia': 'c205.2970.0000', 'input_rate': '2000', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '10Mb/s', 'interf_reset': '0', 'address': 'c205.2970.0000', 'output_rate': '1000', 'last_output': '00:00:03', 'ignored': '0', 'collisions': '0', 'input_packets': '', 'interface': 'FastEthernet0/0', 'output_packets': '18607', 'ip_address': '10.1.7.7/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Gt96k FE', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '1000 usec', 'duplex': 'Half-duplex', 'reliability': '255/255'}]
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '10000 Kbit', 'bia': 'c205.2970.0000', 'input_rate': '2000', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '10Mb/s', 'interf_reset': '0', 'address': 'c205.2970.0000', 'output_rate': '1000', 'last_output': '00:00:03', 'ignored': '0', 'collisions': '0', 'input_packets': '', 'interface': 'FastEthernet0/0', 'output_packets': '18607', 'ip_address': '10.1.7.7/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Gt96k FE', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '1000 usec', 'duplex': 'Half-duplex', 'reliability': '255/255'}]
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 192.168.154.2 to network 0.0.0.0
+
+     1.0.0.0/32 is subnetted, 1 subnets
+D       1.1.1.1 [90/412160] via 10.7.14.7, 00:20:21, FastEthernet2/0
+     6.0.0.0/32 is subnetted, 1 subnets
+D EX    6.6.6.6 [170/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0
+     10.0.0.0/24 is subnetted, 10 subnets
+D       10.7.13.0 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.2.8.0 [90/284160] via 10.8.14.8, 00:59:25, FastEthernet2/1
+C       10.7.14.0 is directly connected, FastEthernet2/0
+D       10.7.8.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1
+                 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.1.2.0 [90/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0
+C       10.8.14.0 is directly connected, FastEthernet2/1
+D       10.1.7.0 [90/284160] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.8.13.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1
+C       10.14.20.0 is directly connected, Vlan11
+D       10.13.19.0 [90/33280] via 10.8.14.8, 00:15:23, FastEthernet2/1
+                   [90/33280] via 10.7.14.7, 00:15:23, FastEthernet2/0
+C    192.168.154.0/24 is directly connected, FastEthernet0/0
+S*   0.0.0.0/0 [254/0] via 192.168.154.2
+['Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP', '       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ', '       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2', '       E1 - OSPF external type 1, E2 - OSPF external type 2', '       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2', '       ia - IS-IS inter area, * - candidate default, U - per-user static route', '       o - ODR, P - periodic downloaded static route', '', 'Gateway of last resort is 192.168.154.2 to network 0.0.0.0', '', '     1.0.0.0/32 is subnetted, 1 subnets', 'D       1.1.1.1 [90/412160] via 10.7.14.7, 00:20:21, FastEthernet2/0', '     6.0.0.0/32 is subnetted, 1 subnets', 'D EX    6.6.6.6 [170/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0', '     10.0.0.0/24 is subnetted, 10 subnets', 'D       10.7.13.0 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0', 'D       10.2.8.0 [90/284160] via 10.8.14.8, 00:59:25, FastEthernet2/1', 'C       10.7.14.0 is directly connected, FastEthernet2/0', 'D       10.7.8.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1', '                 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0', 'D       10.1.2.0 [90/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0', 'C       10.8.14.0 is directly connected, FastEthernet2/1', 'D       10.1.7.0 [90/284160] via 10.7.14.7, 00:59:25, FastEthernet2/0', 'D       10.8.13.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1', 'C       10.14.20.0 is directly connected, Vlan11', 'D       10.13.19.0 [90/33280] via 10.8.14.8, 00:15:23, FastEthernet2/1', '                   [90/33280] via 10.7.14.7, 00:15:23, FastEthernet2/0', 'C    192.168.154.0/24 is directly connected, FastEthernet0/0', 'S*   0.0.0.0/0 [254/0] via 192.168.154.2']
+D       1.1.1.1 [90/412160] via 10.7.14.7, 00:20:21, FastEthernet2/0
+D EX    6.6.6.6 [170/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0
+D       10.7.13.0 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.2.8.0 [90/284160] via 10.8.14.8, 00:59:25, FastEthernet2/1
+D       10.7.8.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1
+                 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.1.2.0 [90/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0
+D       10.1.7.0 [90/284160] via 10.7.14.7, 00:59:25, FastEthernet2/0
+D       10.8.13.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1
+D       10.13.19.0 [90/33280] via 10.8.14.8, 00:15:23, FastEthernet2/1
+                   [90/33280] via 10.7.14.7, 00:15:23, FastEthernet2/0
+FastEthernet2/0 in loop 
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'c208.16ea.f200', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '', 'interf_reset': '4', 'address': 'c208.16ea.f200', 'output_rate': '0', 'last_output': 'never', 'ignored': '0', 'collisions': '0', 'input_packets': '0', 'interface': 'FastEthernet2/0', 'output_packets': '0', 'ip_address': '10.7.14.14/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Fast Ethernet', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': '', 'reliability': '255/255'}]
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'c208.16ea.f200', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '', 'interf_reset': '4', 'address': 'c208.16ea.f200', 'output_rate': '0', 'last_output': 'never', 'ignored': '0', 'collisions': '0', 'input_packets': '0', 'interface': 'FastEthernet2/0', 'output_packets': '0', 'ip_address': '10.7.14.14/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'Fast Ethernet', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': '', 'reliability': '255/255'}]
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     1.0.0.0/32 is subnetted, 1 subnets
+C       1.1.1.1 is directly connected, Loopback0
+     6.0.0.0/32 is subnetted, 1 subnets
+S       6.6.6.6 [1/0] via 10.1.6.6
+     10.0.0.0/24 is subnetted, 11 subnets
+D       10.7.13.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.2.8.0 [100/286720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.7.14.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.7.8.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+C       10.1.2.0 is directly connected, FastEthernet2/0
+D       10.8.14.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+C       10.1.7.0 is directly connected, FastEthernet0/0
+C       10.1.6.0 is directly connected, FastEthernet1/0
+D       10.8.13.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.14.20.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.13.19.0 [100/33280] via 10.1.7.7, 00:17:27, FastEthernet0/0
+['Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP', '       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ', '       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2', '       E1 - OSPF external type 1, E2 - OSPF external type 2', '       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2', '       ia - IS-IS inter area, * - candidate default, U - per-user static route', '       o - ODR, P - periodic downloaded static route', '', 'Gateway of last resort is not set', '', '     1.0.0.0/32 is subnetted, 1 subnets', 'C       1.1.1.1 is directly connected, Loopback0', '     6.0.0.0/32 is subnetted, 1 subnets', 'S       6.6.6.6 [1/0] via 10.1.6.6', '     10.0.0.0/24 is subnetted, 11 subnets', 'D       10.7.13.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'D       10.2.8.0 [100/286720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'D       10.7.14.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'D       10.7.8.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'C       10.1.2.0 is directly connected, FastEthernet2/0', 'D       10.8.14.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'C       10.1.7.0 is directly connected, FastEthernet0/0', 'C       10.1.6.0 is directly connected, FastEthernet1/0', 'D       10.8.13.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'D       10.14.20.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 'D       10.13.19.0 [100/33280] via 10.1.7.7, 00:17:27, FastEthernet0/0']
+D       10.7.13.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.2.8.0 [100/286720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.7.14.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.7.8.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.8.14.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.8.13.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.14.20.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0
+D       10.13.19.0 [100/33280] via 10.1.7.7, 00:17:27, FastEthernet0/0
+FastEthernet0/0 in loop 
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'ca0b.2eab.0000', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '100Mb/s', 'interf_reset': '0', 'address': 'ca0b.2eab.0000', 'output_rate': '0', 'last_output': '00:00:00', 'ignored': '0', 'collisions': '0', 'input_packets': '', 'interface': 'FastEthernet0/0', 'output_packets': '19214', 'ip_address': '10.1.7.1/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'DEC21140', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': 'Half-duplex', 'reliability': '255/255'}]
+[{'last_output_hang': 'never', 'description': '', 'queue_strategy': 'fifo', 'frame': '0', 'link_status': 'up', 'bandwidth': '100000 Kbit', 'bia': 'ca0b.2eab.0000', 'input_rate': '0', 'mtu': '1500', 'crc': '0', 'protocol_status': 'up', 'output_errors': '0', 'rxload': '1/255', 'speed': '100Mb/s', 'interf_reset': '0', 'address': 'ca0b.2eab.0000', 'output_rate': '0', 'last_output': '00:00:00', 'ignored': '0', 'collisions': '0', 'input_packets': '', 'interface': 'FastEthernet0/0', 'output_packets': '19214', 'ip_address': '10.1.7.1/24', 'late_collision': '0', 'input_errors': '0', 'hardware_type': 'DEC21140', 'overrun': '0', 'encapsulation': 'ARPA', 'output_drops': '0', 'txload': '1/255', 'last_input': '00:00:00', 'delay': '100 usec', 'duplex': 'Half-duplex', 'reliability': '255/255'}]
+ Name BGL--SA14
+ Entry interfaces 
+set()
+ Exit interfaces 
+{'FastEthernet2/0 10.7.14.7'}
+ Interface Dictionary 
+{'FastEthernet2/0': {'reliability': '255/255', 'ignored': '0', 'bandwidth': '100000 Kbit', 'input_errors': '0', 'late_collision': '0', 'speed': '', 'rxload': '1/255', 'overrun': '0', 'interf_reset': '4', 'output_drops': '0', 'frame': '0', 'txload': '1/255', 'collisions': '0', 'duplex': '', 'crc': '0', 'output_errors': '0', 'ip': '10.7.14.14'}}
+
+ General Node Information 
+{'cpu': {'cpu_1_min': '3', 'cpu_5_min': '2', 'cpu_5_sec': '1'}, 'ip_route_00': {1: 'D       1.1.1.1 [90/412160] via 10.7.14.7, 00:20:21, FastEthernet2/0', 2: 'D EX    6.6.6.6 [170/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0', 3: 'D       10.7.13.0 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0', 4: 'D       10.2.8.0 [90/284160] via 10.8.14.8, 00:59:25, FastEthernet2/1', 5: 'D       10.7.8.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1', 6: '                 [90/30720] via 10.7.14.7, 00:59:25, FastEthernet2/0', 7: 'D       10.1.2.0 [90/286720] via 10.7.14.7, 00:20:21, FastEthernet2/0', 8: 'D       10.1.7.0 [90/284160] via 10.7.14.7, 00:59:25, FastEthernet2/0', 9: 'D       10.8.13.0 [90/30720] via 10.8.14.8, 00:59:25, FastEthernet2/1', 10: 'D       10.13.19.0 [90/33280] via 10.8.14.8, 00:15:23, FastEthernet2/1', 11: '                   [90/33280] via 10.7.14.7, 00:15:23, FastEthernet2/0'}, '83': {'proc_1_min': '0.17', 'proc_5_sec': '0.16', 'proc_5_min': '0.19', 'process': 'ACCT Periodic Pr '}, '87': {'proc_1_min': '0.21', 'proc_5_sec': '0.24', 'proc_5_min': '0.19', 'process': 'IP ARP Retry Age '}}
+------------------------------
+ Name BGL--SC07
+ Entry interfaces 
+{'FastEthernet2/0 10.7.14.7'}
+ Exit interfaces 
+{'FastEthernet0/0 directly'}
+ Interface Dictionary 
+{'FastEthernet2/0': {'reliability': '255/255', 'ignored': '0', 'bandwidth': '100000 Kbit', 'input_errors': '0', 'late_collision': '0', 'speed': '', 'rxload': '1/255', 'overrun': '0', 'interf_reset': '4', 'output_drops': '0', 'frame': '0', 'txload': '1/255', 'collisions': '0', 'duplex': '', 'crc': '0', 'output_errors': '0', 'ip': '10.7.14.7'}, 'FastEthernet0/0': {'reliability': '255/255', 'ignored': '0', 'bandwidth': '10000 Kbit', 'input_errors': '0', 'late_collision': '0', 'speed': '10Mb/s', 'rxload': '1/255', 'overrun': '0', 'interf_reset': '0', 'output_drops': '0', 'frame': '0', 'txload': '1/255', 'collisions': '0', 'duplex': 'Half-duplex', 'crc': '0', 'output_errors': '0', 'ip': '10.1.7.7'}}
+
+ General Node Information 
+{'cpu': {'cpu_1_min': '4', 'cpu_5_min': '2', 'cpu_5_sec': '1'}, 'ip_route_00': {1: 'D       1.1.1.1 [90/409600] via 10.1.7.1, 00:20:15, FastEthernet0/0', 2: 'D EX    6.6.6.6 [170/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0', 3: 'D       10.2.8.0 [90/284160] via 10.7.8.8, 00:15:18, FastEthernet2/2', 4: 'D       10.1.2.0 [90/284160] via 10.1.7.1, 00:20:15, FastEthernet0/0', 5: 'D       10.8.14.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0', 6: '                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2', 7: 'D       10.8.13.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1', 8: '                  [90/30720] via 10.7.8.8, 00:15:18, FastEthernet2/2', 9: 'D       10.14.20.0 [90/30720] via 10.7.14.14, 00:15:18, FastEthernet2/0', 10: 'D       10.13.19.0 [90/30720] via 10.7.13.13, 00:15:18, FastEthernet2/1'}, '87': {'proc_1_min': '0.27', 'proc_5_sec': '0.16', 'proc_5_min': '0.22', 'process': 'IP ARP Retry Age '}, '83': {'proc_1_min': '0.20', 'proc_5_sec': '0.16', 'proc_5_min': '0.19', 'process': 'ACCT Periodic Pr '}, '47': {'proc_1_min': '0.14', 'proc_5_sec': '0.16', 'proc_5_min': '0.15', 'process': 'Compute load avg '}}
+------------------------------
+ Name BGL--RC01
+ Entry interfaces 
+{'FastEthernet0/0 directly'}
+ Exit interfaces 
+set()
+ Interface Dictionary 
+{'FastEthernet0/0': {'reliability': '255/255', 'ignored': '0', 'bandwidth': '100000 Kbit', 'input_errors': '0', 'late_collision': '0', 'speed': '100Mb/s', 'rxload': '1/255', 'overrun': '0', 'interf_reset': '0', 'output_drops': '0', 'frame': '0', 'txload': '1/255', 'collisions': '0', 'duplex': 'Half-duplex', 'crc': '0', 'output_errors': '0', 'ip': '10.1.7.1'}}
+
+ General Node Information 
+{'cpu': {'cpu_1_min': '1', 'cpu_5_min': '0', 'cpu_5_sec': '0'}, '41': {'proc_1_min': '0.19', 'proc_5_sec': '0.23', 'proc_5_min': '0.16', 'process': 'Per-Second Jobs  '}, 'ip_route_00': {1: 'D       10.7.13.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 2: 'D       10.2.8.0 [100/286720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 3: 'D       10.7.14.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 4: 'D       10.7.8.0 [100/30720] via 10.1.7.7, 00:22:40, FastEthernet0/0', 5: 'D       10.8.14.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 6: 'D       10.8.13.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 7: 'D       10.14.20.0 [100/33280] via 10.1.7.7, 00:22:40, FastEthernet0/0', 8: 'D       10.13.19.0 [100/33280] via 10.1.7.7, 00:17:27, FastEthernet0/0'}, '139': {'proc_1_min': '0.34', 'proc_5_sec': '0.31', 'proc_5_min': '0.27', 'process': 'HQF Shaper Backg '}}
+------------------------------
